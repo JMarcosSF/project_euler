@@ -1,4 +1,4 @@
-package com.project.euler.soluctions;
+package com.project.euler.solutions;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
