@@ -25,9 +25,14 @@ public class EulerSolutions {
 
 	beginTime = System.currentTimeMillis();
 	
+	int num = 1;
+	int size = 5;
+	for(int i = 0; i<size; i++) {
+	    System.out.print(num + " ");
+	}
+	System.out.println();
 	
-	
-	eulerQuestionFifteen();
+//	eulerQuestionFifteen();
 	
 //	System.out.println("\ncount:" + count);
 
@@ -577,6 +582,40 @@ public class EulerSolutions {
 //	    System.out.println();
 	}
 	System.out.println("Number of total paths: " + totalPathSum + "\n");
+    }
+    
+    /**
+     * 2^15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
+     * What is the sum of the digits of the number 2^1000?1
+     */
+    public static void eulerSolutionSixteen() {
+	// solution in groovy
+	// need to translate to Java
+//	def startTime
+//	def endTime
+//
+//	startTime = System.currentTimeMillis()
+//	def intArr = []
+//	BigInteger bigInt = 2**1000
+//	//println bigInt
+//	int i = 0;
+//
+//	while(bigInt > 0) {
+//	    intArr.add(bigInt%10);
+//	    bigInt = bigInt/10;
+//	    i++;
+//	}
+//	println "\nbigInt has: " + intArr.size() + " digits.\n"
+//	def sum = 0
+//
+//	for(dig in intArr) {
+//	     sum = sum + dig
+//	}
+//	println "sum of all digits in bigInt: " + sum
+//	endTime = System.currentTimeMillis()
+//	println("took: " + (endTime-startTime) + " milliseconds!")
+
+	
     }
 
     public static void eulerQuestionFortyEight() {
