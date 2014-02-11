@@ -25,19 +25,13 @@ public class EulerSolutions {
 
 	beginTime = System.currentTimeMillis();
 	
-	eulerQuestionFourteen();
+	
+	
+	eulerQuestionFifteen();
+	
+//	System.out.println("\ncount:" + count);
 
-	//	for(int i = 1; i < max; i++) {
-	//	    int num = i;
-	//	    int counter = 1;
-	//	    
-	//	    if(counter > currLongest) {
-	//		currLongest = counter;
-	//		longestStartNum = i;
-	//	    }
-	//	}
-	//	System.out.println("longStartNum: " + longestStartNum + "__________");
-	//	System.out.print(" with: " + currLongest + "\n");
+	//	eulerQuestionFourteen();
 
 	//	eulerQuestionFortyNine();
 
@@ -83,8 +77,6 @@ public class EulerSolutions {
 
 	endTime = System.currentTimeMillis();
 	System.out.println("took: " + (endTime - beginTime) + " milliseconds.");
-	//	System.out.println(MathUtils.bigIntIsPrime(num));
-	//	System.out.println(MathUtils.tdFactors(BigInteger.valueOf(6857)));
     }
 
 
@@ -504,7 +496,7 @@ public class EulerSolutions {
 	}
 
     }
-    
+
     /**
      * The following iterative sequence is defined for the set of positive integers:
      * n --> n/2 (n is even)
@@ -532,6 +524,59 @@ public class EulerSolutions {
 	}
 	System.out.print("\ngreatest size: " + greatestSize + "\n" + "greatestBase: " + greatestBase);
 	System.out.println();
+    }
+    
+    /**
+     * Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, 
+     * there are exactly 6 routes to the bottom right corner.
+     * 
+     * How many such routes are there through a 20×20 grid?
+     * http://mozartreina.com/counting-lattice-paths.html
+     */
+    public static void eulerQuestionFifteen() {
+//	System.out.println("  The Grid, before:  ");
+//	System.out.println("__________________________\n");
+	int gridSize = 21;
+	long[][] grid = new long[gridSize][gridSize];
+
+	// setting initial value of grid
+	for(int i = 0; i < gridSize; i++) {
+	    grid[0][i] = 1;
+	    grid[i][0] = 1;
+	}
+	
+	for(int i = 0; i < gridSize; i++) {
+	    for(int j = 0; j < gridSize; j++) {
+//		System.out.print(grid[i][j] + " ");
+	    }
+//	    System.out.println();
+	}
+	
+	long totalPathSum = 0;
+	for(int i = 0; i < gridSize; i++) {
+	    for(int j = 0; j < gridSize; j++) {
+		if(j > 0 && j <= gridSize-1 && i == j) {
+		    int it = 1;
+		    while(it < gridSize) {			
+			grid[i][it] = grid[i][it-1] + grid[i-1][it];
+			if(i == gridSize - 1 && it == gridSize - 1)
+			    totalPathSum = grid[i][it];
+			it++;
+		    }
+		}
+	    }
+	}
+//	System.out.println("\nafter:");
+//	System.out.println("__________________________\n");
+	
+	
+	for(int i = 0; i < gridSize; i++) {
+	    for(int j = 0; j < gridSize; j++) {
+//		System.out.print(grid[i][j] + " ");
+	    }
+//	    System.out.println();
+	}
+	System.out.println("Number of total paths: " + totalPathSum + "\n");
     }
 
     public static void eulerQuestionFortyEight() {
