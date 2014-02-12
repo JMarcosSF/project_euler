@@ -24,17 +24,12 @@ public class EulerSolutions {
 	long endTime;
 
 	beginTime = System.currentTimeMillis();
-	
-	int num = 1;
-	int size = 5;
-	for(int i = 0; i<size; i++) {
-	    System.out.print(num + " ");
-	}
-	System.out.println();
-	
-//	eulerQuestionFifteen();
-	
-//	System.out.println("\ncount:" + count);
+
+	eulerSolutionTwenty();
+
+	//	eulerQuestionFifteen();
+
+	//	System.out.println("\ncount:" + count);
 
 	//	eulerQuestionFourteen();
 
@@ -530,7 +525,7 @@ public class EulerSolutions {
 	System.out.print("\ngreatest size: " + greatestSize + "\n" + "greatestBase: " + greatestBase);
 	System.out.println();
     }
-    
+
     /**
      * Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, 
      * there are exactly 6 routes to the bottom right corner.
@@ -539,8 +534,8 @@ public class EulerSolutions {
      * http://mozartreina.com/counting-lattice-paths.html
      */
     public static void eulerQuestionFifteen() {
-//	System.out.println("  The Grid, before:  ");
-//	System.out.println("__________________________\n");
+	//	System.out.println("  The Grid, before:  ");
+	//	System.out.println("__________________________\n");
 	int gridSize = 21;
 	long[][] grid = new long[gridSize][gridSize];
 
@@ -549,14 +544,14 @@ public class EulerSolutions {
 	    grid[0][i] = 1;
 	    grid[i][0] = 1;
 	}
-	
+
 	for(int i = 0; i < gridSize; i++) {
 	    for(int j = 0; j < gridSize; j++) {
-//		System.out.print(grid[i][j] + " ");
+		//		System.out.print(grid[i][j] + " ");
 	    }
-//	    System.out.println();
+	    //	    System.out.println();
 	}
-	
+
 	long totalPathSum = 0;
 	for(int i = 0; i < gridSize; i++) {
 	    for(int j = 0; j < gridSize; j++) {
@@ -571,19 +566,19 @@ public class EulerSolutions {
 		}
 	    }
 	}
-//	System.out.println("\nafter:");
-//	System.out.println("__________________________\n");
-	
-	
+	//	System.out.println("\nafter:");
+	//	System.out.println("__________________________\n");
+
+
 	for(int i = 0; i < gridSize; i++) {
 	    for(int j = 0; j < gridSize; j++) {
-//		System.out.print(grid[i][j] + " ");
+		//		System.out.print(grid[i][j] + " ");
 	    }
-//	    System.out.println();
+	    //	    System.out.println();
 	}
 	System.out.println("Number of total paths: " + totalPathSum + "\n");
     }
-    
+
     /**
      * 2^15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
      * What is the sum of the digits of the number 2^1000?1
@@ -591,31 +586,62 @@ public class EulerSolutions {
     public static void eulerSolutionSixteen() {
 	// solution in groovy
 	// need to translate to Java
-//	def startTime
-//	def endTime
-//
-//	startTime = System.currentTimeMillis()
-//	def intArr = []
-//	BigInteger bigInt = 2**1000
-//	//println bigInt
-//	int i = 0;
-//
-//	while(bigInt > 0) {
-//	    intArr.add(bigInt%10);
-//	    bigInt = bigInt/10;
-//	    i++;
-//	}
-//	println "\nbigInt has: " + intArr.size() + " digits.\n"
-//	def sum = 0
-//
-//	for(dig in intArr) {
-//	     sum = sum + dig
-//	}
-//	println "sum of all digits in bigInt: " + sum
-//	endTime = System.currentTimeMillis()
-//	println("took: " + (endTime-startTime) + " milliseconds!")
+	//	def startTime
+	//	def endTime
+	//
+	//	startTime = System.currentTimeMillis()
+	//	def intArr = []
+	//	BigInteger bigInt = 2**1000
+	//	//println bigInt
+	//	int i = 0;
+	//
+	//	while(bigInt > 0) {
+	//	    intArr.add(bigInt%10);
+	//	    bigInt = bigInt/10;
+	//	    i++;
+	//	}
+	//	println "\nbigInt has: " + intArr.size() + " digits.\n"
+	//	def sum = 0
+	//
+	//	for(dig in intArr) {
+	//	     sum = sum + dig
+	//	}
+	//	println "sum of all digits in bigInt: " + sum
+	//	endTime = System.currentTimeMillis()
+	//	println("took: " + (endTime-startTime) + " milliseconds!")
 
-	
+
+    }
+
+    /**
+     * n! means n × (n - 1) × ... × 3 × 2 × 1
+     * 
+     * For example, 10! = 10 × 9 × ... × 3 × 2 × 1 = 3628800,
+     * and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
+     * 
+     * Find the sum of the digits in the number 100!
+     */
+    public static void eulerSolutionTwenty() {
+	// solution in groovy
+	// need to translate to Java
+
+	BigInteger result = BigInteger.ONE;
+	BigInteger n = BigInteger.valueOf(100);
+	int sum = 0;
+	while (!n.equals(BigInteger.ZERO)) {
+	    result = result.multiply(n);
+	    n = n.subtract(BigInteger.ONE);
+	    if(n.equals(BigInteger.ONE)) {
+		BigInteger ten = BigInteger.valueOf(10);
+		while (result.compareTo(BigInteger.ZERO) > 0) {
+		    BigInteger tmpBig = result.mod(ten);
+		    sum = sum + tmpBig.intValue();
+		    result = result.divide(ten);
+		}
+		System.out.println(sum);
+	    }
+	}
+
     }
 
     public static void eulerQuestionFortyEight() {
