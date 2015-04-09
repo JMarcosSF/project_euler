@@ -211,4 +211,29 @@ public class GeneralUtils {
 	return prod;
     }
 
+	public static void isSubstring(String str, String input) {
+		//TODO Accepct '*' as a wildcard char
+		System.out.println("Main String: " + str);
+		char[] strArr = str.toCharArray();
+		int strLength = strArr.length;
+		char[] inputArr = input.toCharArray();
+		int inputLength = inputArr.length;
+
+		int charMatchCount = 0;
+		for(int i = 0; i < strLength; i++) {
+			int tmp = i;
+			for(int j = i; j < strLength; j++) {
+				System.out.println("testing: " + strArr[tmp]);
+				if(strArr[tmp] == inputArr[charMatchCount]) {
+					charMatchCount++;
+				}
+				if(charMatchCount == inputLength) {
+					System.out.println("MATCH!!!");
+					return;
+				}
+			}
+		}
+
+	}
+    
 }

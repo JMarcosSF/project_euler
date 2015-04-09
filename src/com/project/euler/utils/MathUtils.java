@@ -138,25 +138,29 @@ public class MathUtils {
 	}
 
 	public static boolean isPalindrome(int input) {
-		List<Integer> intArr = new ArrayList<Integer>();
+		List<Integer> intList = new ArrayList<Integer>();
 		int procInt = input;
 
-		int i = 0;
+		// While int being processed is greater than zero,
+		// get last digit from the int and add to the list.
 		while(procInt > 0) {
-			intArr.add(procInt%10);
+			intList.add(procInt%10);
 			procInt = procInt/10;
-			i++;
 		}
 
-		int y = 0;
+		// Take each digit from the intList and build
+		// a new number from it in reverse order
+		// from the input.
 		int tmp = 0;
 		int count = 0;
-		for(int j:intArr) {
+		for(int j:intList) {
 			if(j == 0 && count == 0) {
 				break;
 			}
-
+			System.out.println("j: " + j);
+			System.out.println("tmp*10 : " + (tmp*10));
 			tmp = j + (tmp*10);
+			System.out.println(tmp + "!!\n");
 			count++;
 		}
 

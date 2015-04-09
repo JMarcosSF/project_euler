@@ -25,55 +25,7 @@ public class EulerSolutions {
 
 	beginTime = System.currentTimeMillis();
 
-	eulerSolutionTwenty();
-
-	//	eulerQuestionFifteen();
-
-	//	System.out.println("\ncount:" + count);
-
-	//	eulerQuestionFourteen();
-
-	//	eulerQuestionFortyNine();
-
-	//	eulerQuestionThirteen();
-
-	//	eulerQuestionFortyEight();
-
-	//	eulerQuestionTwelve(500);
-
-	//	System.out.println(MathUtils.tdFactors(tNum) + "______________");
-
-	//	eulerQuestionEleven();
-
-	//	eulerQuestionTen();
-
-	//	eulerQuestionNine();
-	//	int loc = 0;
-	//	int sum = 0;
-	//	for(int i:eulEightArr) {
-	//	    int tmpSum = 0;
-	//	    
-	//	    System.out.println(i);
-	//	    
-	//	    System.out.println();
-	//	    System.out.println(loc);
-	//	    loc++;
-	//	}
-
-	//	BigInteger num = new BigInteger("600851475143");
-	//
-	//	System.out.println(eulerQuestionThree(num));
-	//	eulerQuestionSeven(100);
-
-	//	int[] numArr = GeneralUtils.generateRandomIntArray(10, true, 0, 11);
-	//	int[] numArr = {1, 3, 5, 6, 7};
-	//	System.out.println(eulerQuestionFive(numArr));
-	//	338350
-
-	//	eulerQuestionSix(100);
-	//	System.out.println(eulerQuestionSevenBrute(10001));
-
-	//	System.out.println(eulerQuestionSevenRecursive(10001));
+	System.out.println(MathUtils.isPalindrome(101));
 
 	endTime = System.currentTimeMillis();
 	System.out.println("took: " + (endTime - beginTime) + " milliseconds.");
