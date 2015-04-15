@@ -210,30 +210,34 @@ public class GeneralUtils {
 		}
 		return prod;
 	}
-
-	public static void isSubstring(String str, String input) {
-		//TODO Accepct '*' as a wildcard char
-		System.out.println("Main String: " + str);
-		char[] strArr = str.toCharArray();
-		int strLength = strArr.length;
-		char[] inputArr = input.toCharArray();
-		int inputLength = inputArr.length;
-
-		int charMatchCount = 0;
+	
+	public static boolean isSubstring(String pattern, String str) {
+		int pattLength = pattern.length();
+		int pattLoc = 0;
+		char[] pattCharArr = pattern.toCharArray();
+		char pattCurr = pattCharArr[pattLoc];
+		
+		int strLength = str.length();
+		int strLoc = 0;
+		char[] strCharArr = str.toCharArray();
+		char strCurr;
+		
 		for(int i = 0; i < strLength; i++) {
-			int tmp = i;
-			for(int j = i; j < strLength; j++) {
-				System.out.println("testing: " + strArr[tmp]);
-				if(strArr[tmp] == inputArr[charMatchCount]) {
-					charMatchCount++;
+			strLoc = i;
+			strCurr = strCharArr[strLoc];
+			
+			while(pattCurr == strCurr) {
+				if(strLoc >= strLength) {
+					return false;
 				}
-				if(charMatchCount == inputLength) {
-					System.out.println("MATCH!!!");
-					return;
+				pattCurr = pattCharArr[pattLoc++];
+				strCurr = strCharArr[strLoc++];
+				if(pattLoc == pattLength) {
+					return true;
 				}
 			}
 		}
-
+		return false;
 	}
 
 }
